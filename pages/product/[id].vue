@@ -1,10 +1,10 @@
 <template>
-  <div class="product_details">
+  <div class="product_details mt-md-15">
     <v-row v-if="product">
       <v-col cols="12" md="7">
         <ProductSlider :slides="slides" />
       </v-col>
-      <v-col cols="12" md="5">
+      <v-col cols="12 px-0 px-md-5" md="5">
         <ProductInfo :product="product" />
       </v-col>
     </v-row>
@@ -50,6 +50,5 @@ const slides = [
 <style lang="scss" scoped>
 .product_details {
   margin-bottom: 120px;
-  margin-top: 50px;
 }
 </style>

@@ -49,7 +49,7 @@
       </div>
     </nuxt-link>
     <div class="text">
-      <p class="para mt-1">{{ product.desc }}</p>
+      <p class="para my-1">{{ product.desc }}</p>
       <div class="price" :class="{ topRated: product.topRated }">
         <h4>EGP {{ product.price }}</h4>
         <span class="discount" v-if="product.discount"
@@ -115,6 +115,9 @@ const changeColor = (id) => {
     .price {
       display: flex;
       align-items: center;
+      @media (max-width: 500px) {
+        font-size: 15px;
+      }
 
       &.topRated {
         justify-content: space-between;
@@ -134,11 +137,17 @@ const changeColor = (id) => {
       span.topRated {
         font-size: 14px;
         display: inline-block;
-        background: #00151412;
+        background: var(--top_rated);
         color: #7c899f;
         border-radius: 2px;
         font-size: 10px;
         padding: 1px 5px;
+
+        @media (max-width: 500px) {
+          position: absolute;
+          top: 0;
+          left: 0;
+        }
       }
     }
   }

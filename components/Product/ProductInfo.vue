@@ -115,6 +115,14 @@ if (props.product.colors) {
 
 <style lang="scss" scoped>
 .product_info {
+  background: var(--body_bg);
+  @media (max-width: 960px) {
+    padding: 15px;
+    border-radius: 25px 25px 0 0;
+    transform: translateY(-50px);
+    position: relative;
+    z-index: 5;
+  }
   .rate {
     display: flex;
     align-items: center;

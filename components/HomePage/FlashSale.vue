@@ -22,9 +22,8 @@
     <v-row>
       <v-col
         cols="6"
-        sm="6"
-        md="4"
-        lg="3"
+        sm="4"
+        md="3"
         v-for="product in products"
         :key="product.id"
         ><ProductItem :product="product"

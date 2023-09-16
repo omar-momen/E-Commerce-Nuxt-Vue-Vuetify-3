@@ -52,8 +52,7 @@ onMounted(() => {
       stikyNav.value = documentScrollTop > 6 * NAV_HEIGHT;
       inView.value =
         documentScrollTop > 8 * NAV_HEIGHT &&
-        useHelpers().scrollDirection() != "down" &&
-        useHelpers().isSmallScreen();
+        useHelpers().scrollDirection() != "down";
 
       if (stikyNav.value) {
         BODY.style.paddingTop = NAV_HEIGHT + "px";

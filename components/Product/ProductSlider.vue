@@ -1,6 +1,6 @@
 <template>
   <v-row class="product_slider">
-    <v-col cols="12" md="2">
+    <v-col cols="12" md="2" v-if="!useHelpers().isSmallScreen()">
       <ul class="bullets">
         <li
           v-on="{
@@ -23,12 +23,18 @@
       </ul>
     </v-col>
 
-    <v-col cols="12" md="10">
-      <Swiper @swiper="onSwiper">
+    <v-col class="px-0 px-md-5" cols="12" md="10">
+      <Swiper @swiper="onSwiper" :modules="[Navigation]" :navigation="true">
         <SwiperSlide v-for="slide in slides" :key="slide.id">
           <div class="slide">
-            <vue-image-zoomer
+            <!-- <vue-image-zoomer
               :regular="slide.url"
+              :alt="'product slide image - ' + slide.title"
+              height="500"
+              width="500"
+            /> -->
+            <nuxt-img
+              :src="slide.url"
               :alt="'product slide image - ' + slide.title"
               height="500"
               width="500"
@@ -42,10 +48,12 @@
 
 <script setup>
 import { Swiper, SwiperSlide } from "swiper/vue";
+import { Navigation } from "swiper/modules";
 import "swiper/css";
+import "swiper/css/navigation";
 
-import { VueImageZoomer } from "vue-image-zoomer";
-import "vue-image-zoomer/dist/style.css";
+// import { VueImageZoomer } from "vue-image-zoomer";
+// import "vue-image-zoomer/dist/style.css";
 
 const props = defineProps(["slides"]);
 
@@ -64,6 +72,9 @@ const changeIndex = (index) => {
 
 <style lang="scss">
 .product_slider {
+  position: relative;
+  z-index: 4;
+
   ul.bullets {
     display: flex;
     justify-content: center;
@@ -99,37 +110,40 @@ const changeIndex = (index) => {
   }
 
   .swiper {
+    position: relative;
+    z-index: 4;
+
     .swiper-wrapper {
       .swiper-slide {
         .slide {
           height: 80vh;
           overflow: hidden;
           border-radius: 10px;
-          // display: flex;
-          // justify-content: center;
+          display: flex;
+          justify-content: center;
 
-          .vh--outer {
-            // width: 100% !important;
-            // height: 100% !important;
-            .vh--holder {
-              // width: 100% !important;
-              // height: 100% !important;
-              picture {
-                // width: 100% !important;
-                // height: 100% !important;
-                img {
-                  // width: 100% !important;
-                  // height: 100% !important;
-                  object-fit: contain;
-                }
-              }
-            }
+          @media (max-width: 960px) {
+            border-radius: 0;
+            height: 60vh;
+          }
+
+          img {
+            width: 100% !important;
+            height: 100% !important;
+            object-fit: cover;
           }
         }
       }
 
       .swiper-pagination {
       }
+    }
+    .swiper-button-prev,
+    .swiper-button-next {
+      @media (min-width: 960px) {
+        display: none !important;
+      }
+      color: var(--app_color);
     }
   }
 }

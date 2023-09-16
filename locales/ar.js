@@ -31,7 +31,7 @@ export default {
   form: {
     submit: "Submit",
     save: "Save",
-    send: "Send",
+    send: "ارسل",
     update: "Update",
     add: "Add",
     edit: "edit",

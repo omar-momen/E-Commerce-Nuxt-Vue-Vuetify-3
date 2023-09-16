@@ -560,32 +560,32 @@ export const useApis = () => {
                 title: "Women",
                 sub_cats: [
                   {
-                    id: 11,
+                    id: 31,
                     title: "Sale",
                   },
                   {
-                    id: 12,
+                    id: 32,
                     title: "Clothing",
                   },
                   {
-                    id: 13,
+                    id: 33,
                     title: "Top",
                   },
                   {
-                    id: 14,
+                    id: 34,
                     title: "Dresses",
                   },
                   {
-                    id: 15,
+                    id: 35,
                     title: "Bottoms",
                   },
                   {
-                    id: 16,
+                    id: 36,
                     title: "Lingerie & Lounge",
                   },
                   {
-                    id: 17,
-                    title: "Bags",
+                    id: 37,
+                    title: "Bottoms",
                   },
                 ],
               },
@@ -617,32 +617,32 @@ export const useApis = () => {
                 title: "Kids",
                 sub_cats: [
                   {
-                    id: 31,
+                    id: 11,
                     title: "Sale",
                   },
                   {
-                    id: 32,
+                    id: 12,
                     title: "Clothing",
                   },
                   {
-                    id: 33,
+                    id: 13,
                     title: "Top",
                   },
                   {
-                    id: 34,
+                    id: 14,
                     title: "Dresses",
                   },
                   {
-                    id: 35,
+                    id: 15,
                     title: "Bottoms",
                   },
                   {
-                    id: 36,
+                    id: 16,
                     title: "Lingerie & Lounge",
                   },
                   {
-                    id: 37,
-                    title: "Bottoms",
+                    id: 17,
+                    title: "Bags",
                   },
                 ],
               },
