@@ -1,5 +1,5 @@
 # E-Commerce-Nuxt-Vue-3
-an E-commerce website using the latest web technologies, including Nuxt 3 and Vue 3, for the purpose of showcasing my portfolio.
+an E-commerce website using the latest web technologies, including Nuxt3, Vue3 and Vuetify3 for the purpose of showcasing my portfolio.
 
 ## Author
 Omar Momen
