@@ -40,6 +40,7 @@
     "vue-i18n": "^9.0.0",
     "vue-image-zoomer": "^2.2.3",
     "vue-rate": "^3.1.1",
+    "vue-toastification": "^2.0.0-rc.5",
     "vuetify": "^3.3.16"
   }
 }

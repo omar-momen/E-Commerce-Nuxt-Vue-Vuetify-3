@@ -7,7 +7,9 @@
       aria-label="Notifications Icon"
     >
       <template v-slot:activator="{ props }">
-        <Icon v-bind="props" name="ion:md-notifications-outline" />
+        <v-badge color="#349B89" :content="6">
+          <Icon v-bind="props" name="ion:md-notifications-outline" />
+        </v-badge>
       </template>
     </v-tooltip>
 

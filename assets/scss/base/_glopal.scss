@@ -37,4 +37,16 @@ body {
     margin: 0;
     list-style: none;
   }
+
+  .v-badge {
+    display: block;
+    line-height: unset;
+
+    .v-badge__wrapper {
+      display: block;
+
+      .v-badge__badge {
+      }
+    }
+  }
 }

@@ -30,6 +30,23 @@ useHead({
       name: "keywords",
       content: "SALE, BYE, CLOTHES, DISCOUNT",
     },
+    {
+      property: "og:title",
+      content: "E-Commerce Omar",
+    },
+    {
+      property: "og:type",
+      content: "website",
+    },
+    {
+      property: "og:image",
+      content:
+        "https://images.unsplash.com/photo-1542060748-10c28b62716f?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80",
+    },
+    {
+      property: "og:url",
+      content: "http://localhost:3000/",
+    },
   ],
 });
 
