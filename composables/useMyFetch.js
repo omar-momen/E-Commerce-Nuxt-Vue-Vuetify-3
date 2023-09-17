@@ -13,7 +13,7 @@ export const useMyFetch = (url, options) => {
       ...(options ? options.headers : {}),
       "accept-language": LANG_STORE.current_lang,
       ...(AUTH_STORE.user.token
-        ? { authorization: AUTH_STORE.user.token }
+        ? { authorization: AUTH_STORE.user?.token }
         : {}),
     },
     baseURL: app.public.API_BASE_URL,

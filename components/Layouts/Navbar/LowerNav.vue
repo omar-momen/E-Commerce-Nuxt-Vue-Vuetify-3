@@ -15,7 +15,7 @@
 
     <Cart />
 
-    <UserMenu v-if="user.token" />
+    <UserMenu v-if="user && user.token" />
   </section>
 </template>
 

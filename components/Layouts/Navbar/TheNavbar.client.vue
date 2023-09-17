@@ -36,8 +36,7 @@
 
 <script setup>
 import { useAuthStore } from "~/stores/auth";
-const user = useAuthStore().user;
-
+const user = useAuthStore().user || {};
 const stikyNav = ref(false);
 const inView = ref(false);
 

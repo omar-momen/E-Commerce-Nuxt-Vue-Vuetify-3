@@ -3,71 +3,19 @@ import { useLangStore } from "./lang";
 export const useAuthStore = defineStore("auth", () => {
   const nuxtApp = useNuxtApp();
 
-  const user = ref({
-    id: null,
-    name: null,
-    token: null,
-    usertype: null,
-    image: null,
-    phone: null,
-  });
+  const user = ref(null);
 
   const verify_code = ref(null);
   const verify_method_value = ref(null);
 
   const setStorage = (loginData) => {
-    nuxtApp.$encryptStorage.setItem("blank_App_User_Id", loginData?.id || null);
-    user.value.id = loginData?.id || null;
-
-    nuxtApp.$encryptStorage.setItem(
-      "blank_App_User_Name",
-      loginData?.token || null
-    );
-    user.value.token = loginData?.token || null;
-
-    nuxtApp.$encryptStorage.setItem(
-      "blank_App_Token",
-      loginData?.token || null
-    );
-    user.value.token = loginData?.token || null;
-
-    nuxtApp.$encryptStorage.setItem(
-      "blank_App_User_Type",
-      loginData?.userType || null
-    );
-    user.value.userType = loginData?.userType || null;
-
-    nuxtApp.$encryptStorage.setItem(
-      "blank_App_userImg",
-      loginData?.image || null
-    );
-    user.value.image = loginData?.image || null;
-
-    nuxtApp.$encryptStorage.setItem(
-      "blank_App_userPhone",
-      loginData?.phone || null
-    );
-    user.value.phone = loginData?.phone || null;
+    user.value = { ...loginData };
+    nuxtApp.$encryptStorage.setItem("blank_App_User", loginData);
   };
 
   const clearStorage = () => {
-    nuxtApp.$encryptStorage.removeItem("blank_App_User_Id");
-    user.value.id = null;
-
-    nuxtApp.$encryptStorage.removeItem("blank_App_User_Name");
-    user.value.name = null;
-
-    nuxtApp.$encryptStorage.removeItem("blank_App_Token");
-    user.value.token = null;
-
-    nuxtApp.$encryptStorage.removeItem("blank_App_User_Type");
-    user.value.usertype = null;
-
-    nuxtApp.$encryptStorage.removeItem("blank_App_userImg");
-    user.value.image = null;
-
-    nuxtApp.$encryptStorage.removeItem("blank_App_userPhone");
-    user.value.phone = null;
+    nuxtApp.$encryptStorage.removeItem("blank_App_User");
+    user.value = null;
   };
 
   const logOut = () => {

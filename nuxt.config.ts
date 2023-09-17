@@ -32,7 +32,7 @@ export default defineNuxtConfig({
   },
 
   build: {
-    transpile: ["vuetify", "@googlemaps/js-api-loader"],
+    transpile: ["vuetify", "@googlemaps/js-api-loader", "vue-toastification"],
   },
 
   vite: {

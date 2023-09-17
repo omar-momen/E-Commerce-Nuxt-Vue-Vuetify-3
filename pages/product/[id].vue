@@ -5,7 +5,7 @@
         <ProductSlider :slides="slides" />
       </v-col>
       <v-col cols="12 px-0 px-md-5" md="5">
-        <ProductInfo :product="product" />
+        <ProductInfo @addToCart="addToCart" :product="product" />
       </v-col>
     </v-row>
 
@@ -45,6 +45,11 @@ const slides = [
     provider: "unsplash",
   },
 ];
+
+import { useCartStore } from "@/stores/cart";
+const addToCart = () => {
+  useCartStore().addToCart(product.value);
+};
 </script>
 
 <style lang="scss" scoped>

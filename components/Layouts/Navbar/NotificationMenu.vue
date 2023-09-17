@@ -7,7 +7,7 @@
       aria-label="Notifications Icon"
     >
       <template v-slot:activator="{ props }">
-        <v-badge color="#349B89" :content="6">
+        <v-badge color="#349B89" :content="useCartStore().items_in_cart_length">
           <Icon v-bind="props" name="ion:md-notifications-outline" />
         </v-badge>
       </template>
@@ -53,6 +53,8 @@
 </template>
 
 <script setup>
+import { useCartStore } from "@/stores/cart";
+
 const props = defineProps(["url"]);
 
 const show = ref(false);

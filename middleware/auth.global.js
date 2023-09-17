@@ -1,7 +1,7 @@
 import { useAuthStore } from "@/stores/auth";
 
 export default defineNuxtRouteMiddleware((to, from) => {
-  const USER_TOKEN = useAuthStore().user.token;
+  const USER_TOKEN = useAuthStore().user?.token;
   if (to.meta.requireAuth && !USER_TOKEN) {
     // 1- Show Message Not Authorized
     // ...

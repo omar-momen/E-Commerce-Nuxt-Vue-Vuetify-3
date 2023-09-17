@@ -50,7 +50,7 @@
         </button>
       </div>
 
-      <BaseButton class="add with_icon lg"
+      <BaseButton @click="$emit('addToCart')" class="add with_icon lg"
         ><Icon name="circum:shopping-cart" /> Add To Cart</BaseButton
       >
     </div>

@@ -131,5 +131,3 @@ body.rtl {
   }
 }
 </style>
-
-<script setup></script>

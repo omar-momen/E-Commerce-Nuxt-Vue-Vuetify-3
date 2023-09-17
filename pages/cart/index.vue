@@ -5,10 +5,10 @@
       <router-link class="para" to="/shop">Continue Shopping</router-link>
     </header>
 
-    <v-row>
-      <v-col cols="12" md="9"> <CartItems /> </v-col>
-      <v-col cols="12" md="3"> <CartShipping /> </v-col>
-    </v-row>
+    <Suspense>
+      <CartHeader />
+      <template #fallback> cart loading... </template>
+    </Suspense>
   </div>
 </template>
 
