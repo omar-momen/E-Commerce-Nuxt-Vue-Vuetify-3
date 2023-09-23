@@ -14,8 +14,8 @@ export const useAuthStore = defineStore("auth", () => {
   };
 
   const clearStorage = () => {
-    nuxtApp.$encryptStorage.removeItem("blank_App_User");
     user.value = null;
+    nuxtApp.$encryptStorage.removeItem("blank_App_User");
   };
 
   const logOut = () => {

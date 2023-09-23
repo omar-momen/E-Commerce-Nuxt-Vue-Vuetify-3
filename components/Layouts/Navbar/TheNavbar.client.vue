@@ -1,42 +1,46 @@
 <template>
-  <UpperNav />
-  <nav class="theNav" :class="{ stikyNav: stikyNav, inView: inView }">
-    <v-container>
-      <div class="leftSide">
-        <SwitchLanguage />
-        <ChangeTheme class="mx-4" />
-        <SearchMenu />
-      </div>
-
-      <Logo fixed_src="/images/logo/logo_dark.png" />
-
-      <div class="rightSide">
-        <div v-if="user.token">
-          <notification-menu :image="user.image" url="/lol"></notification-menu>
+  <section class="navs">
+    <!-- <UpperNav /> -->
+    <nav class="theNav" :class="{ stikyNav: stikyNav, inView: inView }">
+      <v-container>
+        <div class="leftSide">
+          <SwitchLanguage />
+          <ChangeTheme class="mx-4" />
+          <SearchMenu />
         </div>
 
-        <div>
-          <UserMenu v-if="user.token" />
-        </div>
+        <Logo fixed_src="/images/logo/logo_dark.png" />
 
-        <div v-if="!user.token">
-          <base-button aria-label="login" link to="/authentication/login"
+        <div class="rightSide">
+          <notification-menu
+            v-if="useAuthStore().user && useAuthStore().user.token"
+            :image="useAuthStore().user && useAuthStore().user.image"
+            url="/lol"
+          ></notification-menu>
+
+          <UserMenu v-if="useAuthStore().user && useAuthStore().user.token" />
+
+          <base-button
+            v-if="!useAuthStore().user"
+            aria-label="login"
+            link
+            to="/authentication/login"
             >Login</base-button
           >
+
+          <Favs />
+
+          <Cart />
         </div>
-
-        <Favs />
-
-        <Cart />
-      </div>
-    </v-container>
-  </nav>
-  <LowerNav />
+      </v-container>
+    </nav>
+    <LowerNav />
+  </section>
 </template>
 
 <script setup>
 import { useAuthStore } from "~/stores/auth";
-const user = useAuthStore().user || {};
+
 const stikyNav = ref(false);
 const inView = ref(false);
 
@@ -66,6 +70,8 @@ onMounted(() => {
 <style lang="scss" scoped>
 .theNav {
   background: var(--main_bg);
+  padding-top: 3px;
+  box-shadow: 0 0 10px var(--main_shadow);
   .v-container {
     position: relative;
     transition: all 0.3s linear;

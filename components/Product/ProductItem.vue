@@ -51,7 +51,7 @@
     <div class="text">
       <p class="para my-1">{{ product.desc }}</p>
       <div class="price" :class="{ topRated: product.topRated }">
-        <h4>EGP {{ product.price }}</h4>
+        <span class="actualPrice">EGP {{ product.price }}</span>
         <span class="discount" v-if="product.discount"
           >EGP {{ product.actulaPrice }}</span
         >
@@ -123,7 +123,7 @@ const changeColor = (id) => {
         justify-content: space-between;
       }
 
-      h4 {
+      span.actualPrice {
         font-weight: 500;
         margin-inline-end: 20px;
       }

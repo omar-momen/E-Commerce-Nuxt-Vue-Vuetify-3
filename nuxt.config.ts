@@ -1,15 +1,8 @@
+// https://nuxt.com/docs/api/configuration/nuxt-config
 export default defineNuxtConfig({
-  modules: [
-    "nuxt-icon",
-    "@pinia/nuxt",
-    "@vueuse/nuxt",
-    "@nuxt/image",
-    // async (options, nuxt) => {
-    //   nuxt.hooks.hook("vite:extendConfig", (config) =>
-    //     config.plugins.push(vuetify())
-    //   );
-    // },
-  ],
+  devtools: { enabled: false },
+
+  modules: ["nuxt-icon", "@pinia/nuxt", "@nuxt/image"],
 
   image: {
     unsplash: {
@@ -32,14 +25,27 @@ export default defineNuxtConfig({
   },
 
   build: {
-    transpile: ["vuetify", "@googlemaps/js-api-loader", "vue-toastification"],
+    transpile: ["vuetify", "@googlemaps/js-api-loader"],
   },
+
+  css: [
+    "~/assets/scss/main.scss",
+    "vuetify/lib/styles/main.sass",
+    "@mdi/font/css/materialdesignicons.min.css",
+  ],
 
   vite: {
     define: {
       "process.env.DEBUG": false,
     },
   },
+
+  app: {
+    layoutTransition: { name: "slide-left", mode: "out-in" },
+    pageTransition: { name: "fadeIn", mode: "out-in" },
+  },
+
+  components: [{ path: "~/components", pathPrefix: false }],
 
   runtimeConfig: {
     public: {
@@ -50,26 +56,9 @@ export default defineNuxtConfig({
     },
   },
 
-  css: [
-    "~/assets/scss/main.scss",
-    "vuetify/lib/styles/main.sass",
-    "@mdi/font/css/materialdesignicons.min.css",
-  ],
-
-  app: {
-    layoutTransition: { name: "slide-left", mode: "out-in" },
-    pageTransition: { name: "fadeIn", mode: "out-in" },
-  },
-
-  components: [{ path: "~/components", pathPrefix: false }],
-
   pinia: {
     autoImports: [
       "defineStore", // import { defineStore } from 'pinia'
     ],
   },
-
-  // devtools: {
-  //   enabled: true,
-  // },
 });

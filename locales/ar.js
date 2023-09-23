@@ -1,6 +1,6 @@
 export default {
   validation: {
-    empty: "the input can't be empty",
+    empty: "فاضي والله يا عسل",
     email: "this is not a valid email",
     form: "please fill all required fields",
     image: "image did not uploded! :(",

@@ -3,7 +3,10 @@
     <Breadcrumb :items="items" />
 
     <v-form class="my-5">
-      <BaseButton aria-label="Open base Model" type="button" @click="showModel1 = true"
+      <BaseButton
+        aria-label="Open base Model"
+        type="button"
+        @click="showModel1 = true"
         >Open base Model</BaseButton
       >
       ||
@@ -35,21 +38,19 @@
       <UplodeMultiple v-model="videos" :data_src="videos_srcs" type="video" />
 
       <h2>Date picker</h2>
-      <VueDatePicker
-        placholder="pick Date"
-        v-model="date"
-        :dark="useThemeStore().current_theme == 'dark'"
+      <v-date-picker
         class="mb-5"
-      ></VueDatePicker>
+        v-model="date"
+        placholder="pick Date"
+      ></v-date-picker>
 
       <h2>Time picker</h2>
-      <VueDatePicker
-        :time-picker="true"
+      <v-text-field
+        type="time"
         placholder="Pick Time"
         v-model="time"
-        :dark="useThemeStore().current_theme == 'dark'"
         class="mb-5"
-      ></VueDatePicker>
+      ></v-text-field>
 
       <h2>Text Input</h2>
       <base-input

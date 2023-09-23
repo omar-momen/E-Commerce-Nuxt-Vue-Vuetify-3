@@ -7,15 +7,15 @@
         <template v-if="!over">
           <span class="endsIn">Ends In:</span>
           <div class="time">
-            <span>{{ time.d }}</span
-            >: <span>{{ time.h }}</span
-            >: <span>{{ time.m }}</span>
+            <span aria-label="numbers of days">{{ time.d }}</span
+            >: <span aria-label="numbers of hours">{{ time.h }}</span
+            >: <span aria-label="numbers of minutes">{{ time.m }}</span>
           </div>
-          <Icon name="zondicons:cheveron-right" />
+          <Icon aria-label="arrow right" name="zondicons:cheveron-right" />
         </template>
 
         <template v-else>
-          <h4>Ended :(</h4>
+          <h4>Offer Ended</h4>
         </template>
       </div>
     </div>
@@ -33,8 +33,8 @@
 </template>
 
 <script setup>
-const API = useApis();
-const { data: products } = await API.GetProducts("flash");
+import { useProductStore } from "@/stores/product";
+const products = await useProductStore().getProducts("flash");
 
 const sale_day_finish = "2023-11-12";
 

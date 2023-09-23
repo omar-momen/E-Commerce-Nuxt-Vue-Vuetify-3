@@ -4,7 +4,7 @@
       <h2>Top Rated</h2>
       <nuxt-link to="/shop" class="end">
         <span class="viewAll">View All</span>
-        <Icon name="zondicons:cheveron-right" />
+        <Icon aria-label="arrow right" name="zondicons:cheveron-right" />
       </nuxt-link>
     </div>
     <v-row>
@@ -21,8 +21,8 @@
 </template>
 
 <script setup>
-const API = useApis();
-const { data: products } = await API.GetProducts("topRated");
+import { useProductStore } from "@/stores/product";
+const products = await useProductStore().getProducts("topRated");
 </script>
 
 <style lang="scss" scoped>

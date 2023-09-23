@@ -15,11 +15,14 @@
 
     <NavDropdown :show="show" @close="show = false">
       <template v-slot>
-        <div class="notification_drop_down">
-          <ul class="items" v-if="notifications.length > 0">
+        <div
+          class="notification_drop_down"
+          :class="{ no_Data: notifications.length === 0 }"
+        >
+          <ul class="items" v-show="notifications.length > 0">
             <li
-              class="item"
               v-for="item in notifications"
+              class="item"
               :key="item.id"
               @click.stop="show = false"
             >
@@ -37,7 +40,7 @@
               </div>
             </li>
           </ul>
-          <div class="noData" v-else>
+          <div class="noData" v-show="notifications.length === 0">
             <nuxt-img
               preset="default"
               height="300"
@@ -60,9 +63,9 @@ const props = defineProps(["url"]);
 const show = ref(false);
 const notifications = ref([]);
 
-const getData = async () => {
-  const res = await useFetch("notifications").then((res) => {});
-};
+// const getData = async () => {
+//   const res = await useFetch("notifications").then((res) => {});
+// };
 // getData();
 </script>
 
@@ -125,6 +128,12 @@ const getData = async () => {
         height: 100%;
         width: 100%;
         border-radius: 15px;
+      }
+    }
+
+    &.no_Data {
+      .items {
+        overflow: unset;
       }
     }
   }

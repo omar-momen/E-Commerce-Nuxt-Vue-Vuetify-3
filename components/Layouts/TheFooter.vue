@@ -10,7 +10,7 @@
               Copyright &copy; {{ new Date().getFullYear() }} All Rights
               Reserved | <br />
               Made With
-              <Icon name="material-symbols:favorite" />
+              <Icon aria-label="heart icon" name="material-symbols:favorite" />
               By
               <span class="colored"
                 ><a
@@ -104,14 +104,14 @@
           ><a aria-label="whatsApp link" href="https://github.com/omar-momen"
             ><Icon name="ic:outline-whatsapp" /></a
         ></span>
-        <!-- <span class="tiktok"
+        <span class="tiktok"
           ><a aria-label="tiktok link" href="https://github.com/omar-momen"
             ><Icon name="formkit:tiktok" /></a
         ></span>
         <span class="linkedin"
           ><a aria-label="linkedin link" href="https://github.com/omar-momen"
             ><Icon name="akar-icons:linkedin-box-fill" /></a
-        ></span> -->
+        ></span>
       </div>
     </v-container>
   </footer>

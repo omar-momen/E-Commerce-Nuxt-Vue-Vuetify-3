@@ -4,7 +4,15 @@
       <nuxt-img :src="rate.user.img" preset="default" width="50" height="50" />
       <div class="text">
         <h3>{{ rate.user.name }}</h3>
-        <VueRate :length="5" :value="rate.rate" :readonly="true" />
+        <v-rating
+          :model-value="rate.rate"
+          readonly
+          color="white"
+          active-color="yellow-accent-4"
+          half-increments
+          hover
+          size="15"
+        ></v-rating>
       </div>
     </div>
 

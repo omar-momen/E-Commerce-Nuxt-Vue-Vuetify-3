@@ -1,5 +1,5 @@
 <template>
-  <NuxtLink class="logo" to="/" name="Home Page">
+  <NuxtLink class="logo" to="/" name="Home Page Logo">
     <nuxt-img
       v-bind="$attrs"
       preset="default"

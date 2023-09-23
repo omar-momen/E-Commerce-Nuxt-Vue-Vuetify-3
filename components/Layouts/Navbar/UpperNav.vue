@@ -9,13 +9,17 @@
         alt="Sale present icon"
       />
       Buy 2 Get 1 Of Them
-      <span>50% Off</span>
+      <span aria-label="offer in percentage">50% Off</span>
     </div>
 
     <div class="time">
-      D: <span>{{ time.d }}</span> H:<span>{{ time.h }}</span> M:
-      <span>{{ time.m }}</span>
-      <!-- <span>{{ time.s }}</span> S -->
+      D: <span aria-label="number of days">{{ time.d }}</span> H:<span
+        aria-label="number of hours"
+        >{{ time.h }}</span
+      >
+      M:
+      <span aria-label="number of minutes">{{ time.m }}</span>
+      <!-- <span aria-label="number of seconds">{{ time.s }}</span> S -->
     </div>
 
     <div class="close" @click="close = true">

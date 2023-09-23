@@ -21,7 +21,9 @@
 <script setup>
 const route = useRoute();
 const id = route.params.id;
-const { data: product } = await useApis().GetProduct(id);
+
+import { useProductStore } from "@/stores/product";
+const product = await useProductStore().getProduct(id);
 
 const slides = [
   {

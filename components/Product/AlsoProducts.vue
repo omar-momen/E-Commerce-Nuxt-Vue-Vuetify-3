@@ -10,7 +10,8 @@
 </template>
 
 <script setup>
-const { data: products } = await useApis().GetProducts();
+import { useProductStore } from "@/stores/product";
+const products = await useProductStore().getProducts();
 </script>
 
 <style lang="scss" scoped></style>

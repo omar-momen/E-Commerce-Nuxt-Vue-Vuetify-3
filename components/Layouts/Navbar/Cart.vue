@@ -1,25 +1,23 @@
 <template>
-  <div class="cart">
-    <RouterLink to="/cart">
-      <v-tooltip
-        theme="light"
-        text="Cart"
-        location="bottom"
-        aria-label="Cart Icon"
-      >
-        <template v-slot:activator="{ props }">
-          <v-badge
-            :class="{ animate: animate }"
-            class="cartBadge"
-            color="#349B89"
-            :content="itemsLength"
-          >
-            <Icon v-bind="props" name="ph:shopping-cart-simple-light" />
-          </v-badge>
-        </template>
-      </v-tooltip>
-    </RouterLink>
-  </div>
+  <RouterLink to="/cart">
+    <v-tooltip
+      theme="light"
+      text="Cart"
+      location="bottom"
+      aria-label="Cart Icon"
+    >
+      <template v-slot:activator="{ props }">
+        <v-badge
+          :class="{ animate: animate }"
+          class="cartBadge"
+          color="#349B89"
+          :content="itemsLength"
+        >
+          <Icon v-bind="props" name="ph:shopping-cart-simple-light" />
+        </v-badge>
+      </template>
+    </v-tooltip>
+  </RouterLink>
 </template>
 
 <script setup>

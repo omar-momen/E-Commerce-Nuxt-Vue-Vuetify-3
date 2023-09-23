@@ -1,7 +1,7 @@
 <template>
   <button
-    class="base_button"
     v-if="!props.to"
+    class="base_button"
     aria-label="forget to set it"
     v-bind:="$attrs"
     :class="{
@@ -14,10 +14,10 @@
   </button>
 
   <NuxtLink
+    v-else
     class="base_button"
     aria-label="forget to set it"
     v-bind:="$attrs"
-    v-else
     :to="props.to"
     name="Profile Page"
   >

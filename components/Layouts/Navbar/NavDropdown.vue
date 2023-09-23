@@ -31,7 +31,7 @@ onMounted(() => {
   main {
     min-height: 10vh;
     min-width: 10vw;
-    overflow-y: scroll;
+    // overflow-y: scroll;
   }
 
   &::before {

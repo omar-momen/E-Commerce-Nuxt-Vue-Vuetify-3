@@ -1,8 +1,8 @@
 <template>
   <div class="language" @click="switchLang">
     <v-tooltip
-            theme="light"
-text="Switch Language"
+      theme="light"
+      text="Switch Language"
       location="bottom"
       aria-label="Switch Lang Icon"
     >

@@ -4,8 +4,8 @@
     v-if="
       type == 'text' || type == 'tel' || type == 'email' || type == 'number'
     "
-    aria-label="forget to set it :D"
-    name="forget to set it :D"
+    :aria-label="`input ${type}`"
+    :name="`input ${type}`"
     v-bind:="$attrs"
     class="custom_input"
     :type="type"
@@ -33,6 +33,8 @@
     @click:clear="clearValue"
     :required="required"
     filled
+    :aria-label="`input ${type}`"
+    :name="`input ${type}`"
   >
     <slot />
   </v-textarea>
@@ -51,6 +53,8 @@
     :append-inner-icon="showPass ? 'mdi-eye' : 'mdi-eye-off'"
     @click:append-inner="showPass = !showPass"
     @click:clear="clearValue"
+    :aria-label="`input ${type}`"
+    :name="`input ${type}`"
   >
     <slot />
   </v-text-field>

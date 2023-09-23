@@ -4,7 +4,15 @@
 
     <div class="rate">
       <div class="stars">
-        <VueRate :length="5" :value="3" :showcount="true" :readonly="true" />
+        <v-rating
+          :model-value="3.5"
+          readonly=""
+          color="white"
+          active-color="yellow-accent-4"
+          half-increments
+          hover
+          size="18"
+        ></v-rating>
       </div>
       <div class="reviews">({{ product.reviews }}) Reviews</div>
     </div>

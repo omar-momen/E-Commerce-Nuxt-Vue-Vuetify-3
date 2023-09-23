@@ -1,6 +1,6 @@
 <template>
-  <AppLoader v-show="useGlobalStore().AppInitLoading" />
-  <div>
+  <div class="app">
+    <AppLoader v-show="useGlobalStore().AppInitLoading" />
     <NuxtLayout>
       <PageLoader v-show="useGlobalStore().pageLoading" />
       <NuxtPage :key="useHelpers().lang()" />

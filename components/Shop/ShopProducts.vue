@@ -11,8 +11,8 @@
 <script setup>
 const props = defineProps(["filter_data"]);
 
-const API = useApis();
-const { data: products } = await API.GetProducts(props.filter_data);
+import { useProductStore } from "@/stores/product";
+const products = await useProductStore().getProducts(props.filter_data);
 
 // watch(
 //   props.filter_data,

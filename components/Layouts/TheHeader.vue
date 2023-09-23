@@ -1,7 +1,7 @@
 <template>
   <header class="header">
     <section class="text" data-aos="fade-right">
-      <span class="top font-italic text-h6">Outfit Presents</span>
+      <small class="top font-italic text-h6">Outfit Presents</small>
       <h1>
         offering <span class="small">a</span> <br />
         <span class="big">new way</span> <span class="small">to</span> shop
@@ -9,15 +9,16 @@
         <span class="small">the</span> world's finest <br />
         clothes!
       </h1>
-      <nuxt-link to="/shop"
-        ><span>Shop Now</span>
+      <nuxt-link to="/shop" aria-label="Shop Now">
+        <span>Shop Now</span>
         <nuxt-img
           src="/icons/arrow-right.svg"
           alt="arrow right"
           preset="default"
           width="32"
           height="24"
-      /></nuxt-link>
+        />
+      </nuxt-link>
     </section>
 
     <section class="image" data-aos="fade-left">
@@ -31,6 +32,10 @@
     </section>
   </header>
 </template>
+
+<script setup>
+const dialog = true;
+</script>
 
 <style lang="scss" scoped>
 header.header {
