@@ -2,7 +2,7 @@
   <div class="app">
     <AppLoader v-show="useGlobalStore().AppInitLoading" />
     <NuxtLayout>
-      <PageLoader v-show="useGlobalStore().pageLoading" />
+      <LazyPageLoader v-if="useGlobalStore().pageLoading" />
       <NuxtPage :key="useHelpers().lang()" />
       <NuxtLoadingIndicator />
     </NuxtLayout>
@@ -11,6 +11,14 @@
 
 <script setup>
 import { useGlobalStore } from "@/stores/global";
+import { useThemeStore } from "@/stores/theme";
+
+const bodyClass = computed(() => {
+  if (useThemeStore().current_theme == "dark") return "darkTheme";
+  if (useThemeStore().current_theme == "light") return "lightTheme";
+  if (!useThemeStore().current_theme)
+    return useThemeStore().default_theme + "Theme";
+});
 
 useHead({
   titleTemplate: (titleChunk) => {
@@ -48,6 +56,9 @@ useHead({
       content: "http://localhost:3000/",
     },
   ],
+  htmlAttrs: {
+    class: bodyClass,
+  },
 });
 
 // Handling App

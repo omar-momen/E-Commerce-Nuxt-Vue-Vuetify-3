@@ -33,10 +33,6 @@
   </header>
 </template>
 
-<script setup>
-const dialog = true;
-</script>
-
 <style lang="scss" scoped>
 header.header {
   display: flex;
