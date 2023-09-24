@@ -5,6 +5,15 @@ import { useGlobalStore } from "@/stores/global";
 // ========= Google Maps
 import { Loader } from "@googlemaps/js-api-loader";
 
+// let Loader = null;
+// if (!localStorage.getItem("googlemaps-file-cache")) {
+//   Loader = await import("@googlemaps/js-api-loader");
+//   localStorage.setItem("googlemaps-file-cache", JSON.stringify(Loader));
+// } else {
+//   Loader = JSON.parse(localStorage.getItem("googlemaps-file-cache"));
+// }
+// console.log(Loader);
+
 // ************* Fonts
 // KOHO
 import "@fontsource/koho/200.css";

@@ -2,9 +2,13 @@
   <div class="app">
     <AppLoader v-show="useGlobalStore().AppInitLoading" />
     <NuxtLayout>
-      <LazyPageLoader v-if="useGlobalStore().pageLoading" />
-      <NuxtPage :key="useHelpers().lang()" />
-      <NuxtLoadingIndicator />
+      <div>
+        <LazyPageLoader v-if="useGlobalStore().pageLoading" />
+        <div :key="useHelpers().lang()">
+          <NuxtPage />
+        </div>
+        <NuxtLoadingIndicator />
+      </div>
     </NuxtLayout>
   </div>
 </template>

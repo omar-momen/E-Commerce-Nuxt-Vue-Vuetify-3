@@ -15,30 +15,40 @@
     </section>
 
     <section class="homeSection flashSale">
-      <Suspense v-if="flashSaleIntersected">
-        <LazyFlashSale />
+      <template v-if="flashSaleIntersected">
+        <Suspense>
+          <LazyFlashSale />
 
-        <template #fallback> <SkeltonProduct /> </template>
-      </Suspense>
+          <template #fallback> <SkeltonProduct /> </template>
+        </Suspense>
+      </template>
     </section>
 
     <section class="homeSection bigOffers">
-      <LazyBigOffers v-if="bigOffersIntersected" />
+      <template v-if="bigOffersIntersected">
+        <LazyBigOffers />
+      </template>
     </section>
 
     <section class="homeSection topRated">
-      <Suspense>
-        <LazyTopRated v-if="topRatedIntersected" />
-        <template #fallback> <SkeltonProduct /> </template>
-      </Suspense>
+      <template v-if="topRatedIntersected">
+        <Suspense>
+          <LazyTopRated />
+          <template #fallback> <SkeltonProduct /> </template>
+        </Suspense>
+      </template>
     </section>
 
     <section class="homeSection collections">
-      <LazyCollections v-if="collectionsIntersected" />
+      <template v-if="collectionsIntersected">
+        <LazyCollections />
+      </template>
     </section>
 
     <section class="homeSection instagram">
-      <LazyInstagram v-if="instagramIntersected" />
+      <template v-if="instagramIntersected">
+        <LazyInstagram />
+      </template>
     </section>
   </div>
 </template>
@@ -56,17 +66,19 @@ const collectionsIntersected = ref(false);
 const instagramIntersected = ref(false);
 
 onMounted(() => {
-  const observer = new IntersectionObserver((entries, observer) => {
-    if (entries[0].isIntersecting) {
-      let theVar = eval(`${entries[0].target.classList[1]}Intersected`);
-      theVar.value = true;
-      observer.unobserve(entries[0].target);
-    }
-  });
-  const All_Sections = document.querySelectorAll(".homeSection");
-  All_Sections.forEach((section) => {
-    observer.observe(section);
-  });
+  setTimeout(() => {
+    const observer = new IntersectionObserver((entries, observer) => {
+      if (entries[0].isIntersecting) {
+        let theVar = eval(`${entries[0].target.classList[1]}Intersected`);
+        theVar.value = true;
+        observer.unobserve(entries[0].target);
+      }
+    });
+    const All_Sections = document.querySelectorAll(".homeSection");
+    All_Sections.forEach((section) => {
+      observer.observe(section);
+    });
+  }, 1000);
 });
 </script>
 

@@ -2,6 +2,17 @@
 export default defineNuxtConfig({
   devtools: { enabled: false },
 
+  nitro: {
+    routeRules: {
+      "/img/**": {
+        headers: { "cache-control": `public,max-age=${3600},s-maxage=${3600}` },
+      },
+      "/_nuxt/**": {
+        headers: { "cache-control": `public,max-age=${3600},s-maxage=${3600}` },
+      },
+    },
+  },
+
   modules: ["nuxt-icon", "@pinia/nuxt", "@nuxt/image"],
 
   image: {
