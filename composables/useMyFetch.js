@@ -12,7 +12,7 @@ export const useMyFetch = (url, options) => {
     headers: {
       ...(options ? options.headers : {}),
       "accept-language": LANG_STORE.current_lang,
-      ...(AUTH_STORE.user.token
+      ...(AUTH_STORE.user?.token
         ? { authorization: AUTH_STORE.user?.token }
         : {}),
     },
