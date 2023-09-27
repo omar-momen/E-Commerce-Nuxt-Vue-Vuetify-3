@@ -35,7 +35,7 @@
           @change="chooseImage"
         />
 
-        <div class="overlay">
+        <div class="_overlay">
           <i :class="placholderIcon"></i>
         </div>
       </div>
@@ -174,7 +174,7 @@ export default {
     align-items: center;
 
     &:hover {
-      .overlay {
+      ._overlay {
         opacity: 1;
 
         i {
@@ -243,7 +243,7 @@ export default {
       cursor: pointer;
     }
 
-    .overlay {
+    ._overlay {
       position: absolute;
       inset: 0;
       width: 100%;

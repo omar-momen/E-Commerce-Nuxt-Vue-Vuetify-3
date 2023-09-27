@@ -1,5 +1,5 @@
 <template>
-  <BaseInput
+  <v-text-field
     outlined
     type="text"
     id="location_autocompleate"

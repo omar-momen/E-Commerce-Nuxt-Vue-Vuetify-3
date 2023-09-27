@@ -2,7 +2,8 @@
   <div class="resourse">
     <Breadcrumb :items="items" />
 
-    <v-form class="my-5">
+    <v-form class="my-5" @submit.prevent>
+      <h2 class="mb-2">Models</h2>
       <BaseButton
         aria-label="Open base Model"
         type="button"
@@ -12,10 +13,10 @@
       ||
       <v-btn @click="showModel2 = true" color="primary">Open Image Model</v-btn>
 
+      <h2 class="my-2">Google Map</h2>
       <GoogleMap @updateLocation="updateLocation" :location="location" />
-
+      <h2 class="my-2">Address Map</h2>
       <div class="custom_card p-2">
-        <h2>Set Location--</h2>
         <GetAddress @updateLocation="updateLocation" :location="location" />
       </div>
 
@@ -39,6 +40,7 @@
 
       <h2>Date picker</h2>
       <v-date-picker
+        color="primary"
         class="mb-5"
         v-model="date"
         placholder="pick Date"
@@ -46,6 +48,7 @@
 
       <h2>Time picker</h2>
       <v-text-field
+        color="primary"
         type="time"
         placholder="Pick Time"
         v-model="time"
@@ -93,7 +96,7 @@
       <select-input
         v-model="withUrlCity"
         getUrl="cities"
-        label="With Url  City"
+        label="With Url City"
       />
 
       <h2>Bind Selects</h2>
@@ -105,7 +108,11 @@
         label="Area"
       />
 
-      <RadioInput v-model="favBrowser" :items="radiosItems" />
+      <RadioInput
+        v-model="favBrowser"
+        :items="radiosItems"
+        label="Choose Browser"
+      />
 
       <v-checkbox
         label="Do you agree to our terms?"
@@ -145,8 +152,6 @@ useSeoMeta({
   title: "Resourses",
 });
 
-import { useThemeStore } from "~/stores/theme";
-
 const showModel1 = ref(false);
 const showModel2 = ref(false);
 
@@ -157,8 +162,8 @@ const items = [
     href: "/",
   },
   {
-    text: "resource",
-    href: "/resource",
+    text: "resources",
+    href: "/resources",
   },
 ];
 
@@ -253,6 +258,7 @@ const radiosItems = [
     value: "edg",
   },
 ];
+const favBrowser = ref(null);
 
 const userAgreed = ref(false);
 

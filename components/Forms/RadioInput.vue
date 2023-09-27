@@ -1,5 +1,5 @@
 <template>
-  <v-radio-group @change="updateValue($event)" :value="value">
+  <v-radio-group @change="updateValue($event)">
     <label>{{ label }}</label>
     <v-radio
       v-for="radio in items"
@@ -13,9 +13,6 @@
 
 <script setup>
 const props = defineProps({
-  modelValue: {
-    required: false,
-  },
   items: {
     required: true,
     type: Array,

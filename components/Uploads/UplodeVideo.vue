@@ -29,7 +29,7 @@
         @change="chooseVideo"
       />
 
-      <div v-if="!video.video_src && !_data_src" class="overlay">
+      <div v-if="!video.video_src && !_data_src" class="_overlay">
         <span class="icon"><Icon :name="icon" /></span>
       </div>
     </div>
@@ -105,6 +105,11 @@ const clearVideo = () => {
 <style lang="scss" scoped>
 .uplodeVideo {
   margin-block: 20px;
+
+  video {
+    width: 300px;
+    height: 250px;
+  }
   .chooseVideo {
     position: relative;
     text-align: center;
@@ -144,7 +149,7 @@ const clearVideo = () => {
     }
 
     &:hover {
-      .overlay {
+      ._overlay {
         opacity: 1;
 
         span.icon {
@@ -204,7 +209,7 @@ const clearVideo = () => {
       cursor: pointer;
     }
 
-    .overlay {
+    ._overlay {
       position: absolute;
       inset: 0;
       width: 100%;

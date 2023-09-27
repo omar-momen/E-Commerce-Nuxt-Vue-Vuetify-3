@@ -20,10 +20,6 @@ export default defineNuxtConfig({
       baseURL: "https://images.unsplash.com/",
     },
 
-    cloudinary: {
-      baseURL: "https://res.cloudinary.com/<your-cloud-name>/image/upload/",
-    },
-
     presets: {
       default: {
         modifiers: {
@@ -60,10 +56,10 @@ export default defineNuxtConfig({
 
   runtimeConfig: {
     public: {
-      LOCALE: "en",
-      FALLBACK_LOCALE: "en",
-      GOOGLE_MAPS_API_KEY: "AIzaSyC2MTR_vRbsbQQRPt5f5ZLCvvaKOpzkzlA",
-      API_BASE_URL: process.env.API_BASE_URL,
+      googlemapsapikey: "AIzaSyC2MTR_vRbsbQQRPt5f5ZLCvvaKOpzkzlA",
+      locale: "en",
+      fallbacklocale: "en",
+      apiBase: "https://develobug.com/zal/public/provider/",
     },
   },
 

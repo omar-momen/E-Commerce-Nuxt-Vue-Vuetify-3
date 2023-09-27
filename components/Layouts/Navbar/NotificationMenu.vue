@@ -7,7 +7,12 @@
       aria-label="Notifications Icon"
     >
       <template v-slot:activator="{ props }">
-        <v-badge color="#349B89" :content="useCartStore().items_in_cart_length">
+        <v-badge
+          color="#349B89"
+          :content="
+            useAuthStore().user ? useAuthStore().user.notificationLength : 0
+          "
+        >
           <Icon v-bind="props" name="ion:md-notifications-outline" />
         </v-badge>
       </template>
@@ -57,8 +62,7 @@
 
 <script setup>
 import { useCartStore } from "@/stores/cart";
-
-const props = defineProps(["url"]);
+import { useAuthStore } from "@/stores/auth";
 
 const show = ref(false);
 const notifications = ref([]);

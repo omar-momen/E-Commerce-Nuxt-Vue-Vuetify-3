@@ -86,7 +86,7 @@ const login = async () => {
       email: "tugrp@example.com",
       token: "asdwascascsadfggf fgh fghgfh fgh fgh hfghd cascsacascasasc",
       cartLength: 0,
-      notificationLength: 6,
+      notificationLength: 0,
     };
     useAuthStore().logIn(user);
   }, 1000);

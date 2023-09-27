@@ -1,5 +1,5 @@
 <template>
-  <base-card>
+  <div class="custom_card">
     <div class="uplodeFiles">
       <div class="chooseFiles">
         <div class="placholder">
@@ -18,11 +18,11 @@
           type="file"
           multiple
           :accept="type == 'video' ? 'video/*' : 'image/*'"
-          :name="name"
+          :name="title"
           @change="chooseFiles"
         />
 
-        <div class="overlay">
+        <div class="_overlay">
           <div class="icons" v-if="_files.length < 1">
             <Icon v-for="item in 3" :name="icon"></Icon>
           </div>
@@ -51,8 +51,9 @@
             </div>
           </div>
         </transition>
-      </div></div
-  ></base-card>
+      </div>
+    </div>
+  </div>
 </template>
 
 <script setup>
@@ -70,11 +71,6 @@ const props = defineProps({
   title: {
     type: String,
     default: "Select Files",
-  },
-  name: {
-    type: String,
-    default: "images",
-    required: true,
   },
   type: {
     type: String,
@@ -126,7 +122,7 @@ const deleteFile = (file) => {
     filesToUplode.value = filesToUplode.value.filter((current_file) => {
       return file.uniqeID != current_file.uniqeID;
     });
-    emits("update:modelValue", files.value);
+    emits("update:modelValue", _files.value);
   }
 };
 </script>
@@ -144,7 +140,7 @@ const deleteFile = (file) => {
     border-radius: 20px;
 
     &:hover {
-      .overlay {
+      ._overlay {
         opacity: 1;
 
         .icons {
@@ -204,7 +200,7 @@ const deleteFile = (file) => {
       opacity: 0;
       cursor: pointer;
     }
-    .overlay {
+    ._overlay {
       position: absolute;
       inset: 0;
       width: 100%;

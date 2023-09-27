@@ -4,32 +4,6 @@ export const useApis = () => {
       return await useMyFetch("cities");
     }
 
-    static async GetCountries() {
-      return await new Promise((resolve) => {
-        setTimeout(() => {
-          resolve([
-            {
-              id: 1,
-              title: "Egypt",
-            },
-            {
-              id: 2,
-              title: "United State",
-            },
-            {
-              id: 3,
-              title: "Oman",
-            },
-            {
-              id: 4,
-              title: "France",
-            },
-          ]);
-        }, 1000);
-      });
-      // return await useMyFetch("countries ");
-    }
-
     static async GetHomeCategories() {
       const pending = ref(true);
       const data = ref(
@@ -71,9 +45,7 @@ export const useApis = () => {
           }, 1000);
         })
       );
-
       return { pending, data };
-
       // return await useMyFetch("categories ");
     }
 
@@ -181,7 +153,6 @@ export const useApis = () => {
       );
 
       return { pending, data };
-
       // return await useMyFetch("filters ");
     }
   };

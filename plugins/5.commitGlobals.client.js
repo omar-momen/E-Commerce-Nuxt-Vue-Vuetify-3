@@ -36,7 +36,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 
   // Google Map Loader
   const loader = new Loader({
-    apiKey: useRuntimeConfig().public.GOOGLE_MAPS_API_KEY,
+    apiKey: useRuntimeConfig().public.googlemapsapikey,
     libraries: ["places"],
   });
 

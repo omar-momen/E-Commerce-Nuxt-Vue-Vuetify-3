@@ -38,11 +38,11 @@
         class="file_input"
         type="file"
         accept="image/*"
-        :name="name"
+        :name="title"
         @change="chooseImage"
       />
 
-      <div class="overlay">
+      <div class="_overlay">
         <span class="icon"><Icon :name="icon" /></span>
       </div>
     </div>
@@ -64,11 +64,6 @@ const props = defineProps({
     type: String,
     default: "Main Image",
     required: false,
-  },
-  name: {
-    type: String,
-    default: "image",
-    required: true,
   },
   icon: {
     type: String,
@@ -162,7 +157,7 @@ const clearImage = () => {
     }
 
     &:hover {
-      .overlay {
+      ._overlay {
         opacity: 1;
 
         span.icon {
@@ -222,7 +217,7 @@ const clearImage = () => {
       cursor: pointer;
     }
 
-    .overlay {
+    ._overlay {
       position: absolute;
       inset: 0;
       width: 100%;

@@ -5,7 +5,7 @@ export const useMyFetch = (url, options) => {
   const AUTH_STORE = useAuthStore();
   const LANG_STORE = useLangStore();
 
-  const app = useRuntimeConfig();
+  const config = useRuntimeConfig();
 
   const myOptions = ref({
     ...options,
@@ -16,7 +16,7 @@ export const useMyFetch = (url, options) => {
         ? { authorization: AUTH_STORE.user?.token }
         : {}),
     },
-    baseURL: app.public.API_BASE_URL,
+    baseURL: config.public.apiBase,
     onRequest({ request, options }) {
       // Set the request headers
     },

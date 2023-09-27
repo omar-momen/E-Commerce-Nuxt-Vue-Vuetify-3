@@ -2,7 +2,7 @@ export const useLangStore = defineStore("lang", () => {
   const nuxtApp = useNuxtApp();
 
   const current_lang = ref(null);
-  const default_lang = ref(useRuntimeConfig().public.LOCALE);
+  const default_lang = ref(useRuntimeConfig().public.locale);
 
   const handleLang = () => {
     let lang = current_lang.value;
@@ -11,7 +11,7 @@ export const useLangStore = defineStore("lang", () => {
       current_lang.value = default_lang.value;
     }
 
-    useRuntimeConfig().public.LOCALE = lang;
+    useRuntimeConfig().public.locale = lang;
     nuxtApp.$encryptStorage.setItem("blank_App_Lang", lang);
     document.documentElement["lang"] = lang;
     nuxtApp.$i18n.global.locale.value = lang;

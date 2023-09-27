@@ -7,9 +7,9 @@ export default defineNuxtPlugin(({ vueApp }) => {
   const i18n = createI18n({
     legacy: false,
     globalInjection: true,
-    locale: config.public["LOCALE"],
+    locale: config.public["locale"],
     messages: { ar: arObj, en: enObj },
-    // fallbackLocale: config.public["FALLBACK_LOCALE"],
+    // fallbackLocale: config.public["fallbacklocale"],
   });
   vueApp.use(i18n);
   return {
